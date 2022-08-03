@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 export const About: React.FC = () => {
-    return <Inner>안녕</Inner>;
+    return <Inner>뎁스</Inner>;
 };
 
 const Inner = styled.div`
