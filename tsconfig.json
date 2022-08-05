@@ -1,6 +1,7 @@
 {
     "compileOnSave": true,
     "compilerOptions": {
+        "baseUrl": "src",
         "target": "es2016",
         "jsx": "react-jsx",
         "module": "esnext",
@@ -11,7 +12,6 @@
         "strict": true,
         "skipLibCheck": true,
         "lib": ["dom", "dom.iterable", "esnext"],
-        "baseUrl": "./src",
         "allowJs": true,
         "allowSyntheticDefaultImports": true,
         "noFallthroughCasesInSwitch": true,
@@ -20,6 +20,6 @@
         "isolatedModules": true,
         "noEmit": true
     },
-    "include": ["./src/"],
+    "include": ["src"],
     "exclude": ["node_modules/*"]
 }

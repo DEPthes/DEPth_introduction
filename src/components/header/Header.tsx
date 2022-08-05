@@ -1,60 +1,59 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import aboutPNG from '../../img/ABOUT.png';
+import projectPNG from '../../img/PROJECT.png';
+import memberPNG from '../../img/MEMBER.png';
+import contactPNG from '../../img/CONTACT.png';
 
 export const Header: React.FC = () => {
     return (
-        <ContlorBox>
+        <HeaderBox>
             <Contlor
                 to="/"
                 className={({ isActive }) => (isActive ? 'active' : 'inactive')}
             >
-                ABOUT
+                <img src={aboutPNG} alt="ABOUT" height="13px" />
             </Contlor>
             <Contlor
                 to="/Project"
                 className={({ isActive }) => (isActive ? 'active' : 'inactive')}
             >
-                PROJECT
+                <img src={projectPNG} alt="PROJECT" height="13px" />
             </Contlor>
             <Contlor
                 to="/Member"
                 className={({ isActive }) => (isActive ? 'active' : 'inactive')}
             >
-                MEMBER
+                <img src={memberPNG} alt="MEMBER" height="13px" />
             </Contlor>
             <Contlor
                 to="/Contact"
                 className={({ isActive }) => (isActive ? 'active' : 'inactive')}
             >
-                CONTACT
+                <img src={contactPNG} alt="CONTACT" height="13px" />
             </Contlor>
-        </ContlorBox>
+        </HeaderBox>
     );
 };
 
-const ContlorBox = styled.div`
+const HeaderBox = styled.div`
+    position: fixed;
     display: flex;
     justify-content: center;
     width: 100%;
     padding-top: 46px;
-    padding-bottom: 392px;
+    z-index: 10000;
 `;
 
 export const Contlor = styled(NavLink)`
-    text-decoration: none;
-    font-size: 24px;
-    font-family: 'Sandoll Rotary';
-    font-style: normal;
-    font-weight: 400;
-    line-height: 25px;
-    color: rgba(255, 255, 255, 0.67);
-    margin: 18px;
+    margin: 0 15px;
     position: relative;
+    filter: brightness(60%);
     &.active {
-        color: #ffffff;
+        filter: brightness(100%);
     }
     &:hover {
-        color: #ffffff;
+        filter: brightness(100%);
     }
 `;

@@ -1,10 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
 
 export const Contact: React.FC = () => {
-    return <Inner>연락해</Inner>;
+    return <div>연락해</div>;
 };
-
-const Inner = styled.div`
-    color: black;
-`;

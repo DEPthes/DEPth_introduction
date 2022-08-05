@@ -15,6 +15,13 @@ module.exports = {
     parserOptions: {
         ecmaVersion: 2018,
     },
+    settings: {
+        'import/resolver': {
+            node: {
+                moduleDirectory: ['node_modules', 'src'],
+            },
+        },
+    },
     plugins: ['@typescript-eslint'],
     rules: {
         // 추가하고 싶은 rule을 더 추가해줍니다.
