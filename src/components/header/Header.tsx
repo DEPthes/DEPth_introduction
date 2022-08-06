@@ -37,7 +37,7 @@ export const Header: React.FC = () => {
     );
 };
 
-const HeaderBox = styled.div`
+const HeaderBox = styled.nav`
     position: fixed;
     display: flex;
     justify-content: center;
