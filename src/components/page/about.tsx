@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { BsChevronDown } from 'react-icons/bs';
 import Bg from '../bg';
 import logoPNG from '../../img/MainText.png';
+import PMPNG from '../../img/PM.png';
 
 type S2BoxTextType = {
     heading: string;
@@ -23,6 +24,67 @@ export const S2Box: React.FC<S2BoxTextType> = ({ heading, p }) => {
                 ))}
             </S2BoxP>
         </S2BoxDiv>
+    );
+};
+type S4BoxTextType = {
+    heading: string;
+    name: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    p: any;
+    color: string;
+    flex: string;
+    display: string;
+};
+
+export const S4CommentStart: React.FC<S4BoxTextType> = ({
+    heading,
+    name,
+    p,
+    color,
+    flex,
+    display,
+}) => {
+    return (
+        <S4CommentDivColumn flex={flex}>
+            <S4CommentHeading display={display}>{heading}</S4CommentHeading>
+            <S4CommentContentDiv>
+                <S4CommentProfileDivStart>
+                    <S4CommentProfileImg src={PMPNG} alt="미모지" />
+                    <S4CommentProfileName color={color}>
+                        {name}
+                    </S4CommentProfileName>
+                </S4CommentProfileDivStart>
+                <S4CommentTextBox>
+                    <S4CommentText>{p}</S4CommentText>
+                </S4CommentTextBox>
+            </S4CommentContentDiv>
+        </S4CommentDivColumn>
+    );
+};
+
+export const S4CommentEnd: React.FC<S4BoxTextType> = ({
+    heading,
+    name,
+    p,
+    color,
+    flex,
+    display,
+}) => {
+    return (
+        <S4CommentDivColumn flex={flex}>
+            <S4CommentHeading display={display}>{heading}</S4CommentHeading>
+            <S4CommentContentDiv>
+                <S4CommentTextBox>
+                    <S4CommentText>{p}</S4CommentText>
+                </S4CommentTextBox>
+                <S4CommentProfileDivEnd>
+                    <S4CommentProfileImg src={PMPNG} alt="미모지" />
+                    <S4CommentProfileName color={color}>
+                        {name}
+                    </S4CommentProfileName>
+                </S4CommentProfileDivEnd>
+            </S4CommentContentDiv>
+        </S4CommentDivColumn>
     );
 };
 
@@ -93,6 +155,111 @@ export const About: React.FC = () => {
                     </S3TextBox>
                 </S3Container>
             </Section3>
+            <Section4>
+                <S4Container>
+                    <S4TextBox>
+                        <S4Heading>그럼 뎁스는 무엇을 할까?</S4Heading>
+                        <S4P>기획, 개발, 디자인팀은 이러한 역할을 합니다.</S4P>
+                    </S4TextBox>
+                    <S4CommentFlexStart>
+                        <S4CommentStart
+                            display="block"
+                            flex="flex-start"
+                            heading="기획팀은 무엇을 하나요?"
+                            name="Product Manager"
+                            p={
+                                <>
+                                    기획은 서비스 큰 틀을 잡아주고 목표와
+                                    방향성을 잡아주는 역할을 합니다.
+                                    시장분석부터 시작해서 기능정의서 작성과
+                                    와이어프레임 등 전반적으로 서비스의 내용을
+                                    채워주기도 합니다. 가장 오래걸리는
+                                    단계이지만
+                                    <br /> 그만큼 단단하게 서비스의 틀을
+                                    잡아주는 역할을 하기 때문에 기획부의 역할이
+                                    매우 큽니다. <br />
+                                    <em>기획부 파이팅!</em>
+                                </>
+                            }
+                            color="#001aff"
+                        />
+                    </S4CommentFlexStart>
+                    <S4CommentFlexEnd>
+                        <S4CommentEnd
+                            display="block"
+                            flex="flex-end"
+                            heading="개발팀은 무엇을 하나요?"
+                            name="FrontEnd Developer"
+                            p={
+                                <>
+                                    프론트엔드 팀은 사용자와 서비스를 연결해
+                                    주는 과정의 모든 것을 구현하는 역할을
+                                    합니다. <br /> 백엔드 팀, 디자인 팀과
+                                    협업하며 더 효율적인 데이터 처리 방법과 높은
+                                    퀄리티의 화면을
+                                    <br /> 구현하기 위해 노력합니다.
+                                    프론트엔드의 가치는 서비스의 가치와
+                                    직결되므로
+                                    <br /> 웹서비스의 전체적인 수준을 높이기
+                                    위해 매일같이 고민하고 있습니다.
+                                </>
+                            }
+                            color="#7000FF"
+                        />
+                    </S4CommentFlexEnd>
+                    <S4CommentFlexEnd>
+                        <S4CommentEnd
+                            display="none"
+                            flex="flex-end"
+                            heading="개발팀은 무엇을 하나요?"
+                            name="FrontEnd Developer"
+                            p={
+                                <>
+                                    뎁스 이름처럼 열정이 넘쳐나는 디자이너와
+                                    개발자분들을 만나 성장할 수 있는
+                                    공간이었습니다. 기획부터 디자인, 서비스
+                                    런칭을 위한 과정에서 배움과 성취가 가득한
+                                    시간을 보냈습니다. 특히 14주의 기간이 끝나고
+                                    서비스 고도화를 진행할 만큼, 함께 만든
+                                    서비스에 애정을 갖는 팀원이 생긴다는 점이 큰
+                                    매력이라고 생각해요! 11기에서도 함께 성장할
+                                    수 있길 기대합니다.
+                                </>
+                            }
+                            color="#7000FF"
+                        />
+                    </S4CommentFlexEnd>
+                    <S4CommentFlexStart>
+                        <S4CommentStart
+                            display="block"
+                            flex="flex-start"
+                            heading="디자인팀은 무엇을 하나요?"
+                            name="Designer"
+                            p={
+                                <>
+                                    뎁스 이름처럼 열정이 넘쳐나는 디자이너와
+                                    개발자분들을 만나 성장할 수 있는
+                                    공간이었습니다. 기획부터 디자인, 서비스
+                                    런칭을 위한 과정에서 배움과 성취가 가득한
+                                    시간을 보냈습니다. 특히 14주의 기간이 끝나고
+                                    서비스 고도화를 진행할 만큼, 함께 만든
+                                    서비스에 애정을 갖는 팀원이 생긴다는 점이 큰
+                                    매력이라고 생각해요! 11기에서도 함께 성장할
+                                    수 있길 기대합니다.
+                                </>
+                            }
+                            color="#7000FF"
+                        />
+                    </S4CommentFlexStart>
+                </S4Container>
+                <S4EndingTextContainer>
+                    <S4EndingTextP>
+                        앞으로도
+                        <br /> 뎁스의 행보를 응원해주세요
+                    </S4EndingTextP>
+                    <S4EndingTextLine />
+                </S4EndingTextContainer>
+            </Section4>
         </Bg>
     );
 };
@@ -230,4 +397,128 @@ const S3P = styled.p`
     font-weight: 350;
     font-size: 20px;
     margin-left: 10px;
+`;
+
+const Section4 = styled.section`
+    width: 100%;
+    height: 200vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+`;
+
+const S4Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
+
+const S4TextBox = styled.div`
+    text-align: center;
+`;
+
+const S4Heading = styled.h1`
+    font-weight: 900;
+    font-size: 40px;
+`;
+
+const S4P = styled.p`
+    font-weight: 400;
+    font-size: 20px;
+    color: #b2afaf;
+`;
+
+const S4CommentFlexStart = styled.div`
+    width: 1197px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+`;
+const S4CommentFlexEnd = styled.div`
+    width: 1197px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+`;
+
+const S4CommentDivColumn = styled.div<{ flex: string }>`
+    display: flex;
+    flex-direction: column;
+    align-items: ${(props) => props.flex};
+    margin-top: 108px;
+`;
+
+const S4CommentHeading = styled.h2<{ display: string }>`
+    font-weight: 900;
+    font-size: 30px;
+    display: ${(props) => props.display};
+`;
+
+const S4CommentContentDiv = styled.div`
+    display: flex;
+    align-items: flex-end;
+    margin-top: 15px;
+`;
+
+const S4CommentProfileDivStart = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-right: 24px;
+`;
+const S4CommentProfileDivEnd = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-left: 24px;
+`;
+
+const S4CommentProfileImg = styled.img``;
+
+const S4CommentProfileName = styled.div<{ color: string }>`
+    background: ${(props) => props.color};
+    border-radius: 46px;
+    text-align: center;
+    font-weight: 900;
+    font-size: 13px;
+    margin-top: 20px;
+    width: 151px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 15px;
+`;
+
+const S4CommentTextBox = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 40px;
+    background: #d9d9d9;
+    border-radius: 35px;
+    color: black;
+    font-weight: 500;
+    font-size: 20px;
+`;
+
+const S4CommentText = styled.p`
+    em {
+        font-weight: 700;
+    }
+`;
+
+const S4EndingTextContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+`;
+const S4EndingTextP = styled.p`
+    font-weight: 900;
+    font-size: 42px;
+`;
+
+const S4EndingTextLine = styled.div`
+    border: 2px solid white;
+    width: 536px;
+    margin-top: 38px;
 `;
